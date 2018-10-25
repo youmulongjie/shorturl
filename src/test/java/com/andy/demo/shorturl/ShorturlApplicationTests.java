@@ -1,7 +1,5 @@
 package com.andy.demo.shorturl;
 
-import com.andy.demo.shorturl.bean.SinaConfig;
-import com.andy.demo.shorturl.redis.RedisStringUtil;
 import com.andy.demo.shorturl.service.IShortUrl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,16 +12,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ShorturlApplicationTests {
 
 	@Autowired
-	private SinaConfig acessToken;
-
-	@Autowired
 	private IShortUrl iShortUrl;
 
-	@Autowired
-	private RedisStringUtil redisStringUtil;
-
+	// 测试短地址
 	@Test
-	public void contextLoads() {
+	public void testShortUrl() {
 		String longUrl = "http://www.huanbaoxia.com/goods-280.html";
 		String res = iShortUrl.shortUrl(longUrl);
 		System.out.println(res);

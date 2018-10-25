@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * 新浪应用 Token
+ * 新浪应用短连接API 配置
  */
 @Component
-public class SinaConfig {
+public class ShortUrlApiConfig {
     /**
-     * 新浪应用 转化短接口API
+     * api url
      */
     @Getter
     @Value("${api_url}")
