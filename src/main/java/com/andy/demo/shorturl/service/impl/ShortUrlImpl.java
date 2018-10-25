@@ -38,7 +38,7 @@ public class ShortUrlImpl implements IShortUrl{
         // 获取 redis 的 key
         String key = getKey(longUrl);
 
-        // redis 不存在key，则先调用新浪接口后将值保存在 redis中，在返回
+        // redis 不存在key，则先调用新浪接口后将值保存在 redis中
         if(!redisStringUtil.hasKey(key)){
             callApi(longUrl);
         }
@@ -52,7 +52,7 @@ public class ShortUrlImpl implements IShortUrl{
 
     /**
      * 调 新浪短链接API
-     * @param longUrl
+     * @param longUrl 长连接
      */
     private void callApi(String longUrl){
         CloseableHttpClient client = HttpClients.createDefault();
