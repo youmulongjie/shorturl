@@ -6,6 +6,8 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.util.StringUtils;
 
 import javax.imageio.ImageIO;
@@ -90,7 +92,7 @@ public class QrCodeUtils {
             fileName = fileName.substring(0, fileName.indexOf(".")>0?fileName.indexOf("."):fileName.length()) + "." + PICTURE_FORMAT;
         }
 
-        File qrFile = new File(destPath + "/" + fileName);
+        File qrFile = new File(destPath + File.separator + fileName);
         ImageIO.write(image, PICTURE_FORMAT, qrFile);
         return qrFile.getAbsolutePath();
     }
@@ -135,13 +137,14 @@ public class QrCodeUtils {
      * @throws Exception
      */
     private static void insertImage(BufferedImage source, String logoPath) throws Exception {
-        File file = new File(logoPath);
+        Resource resource = new ClassPathResource(logoPath);
+        File file = resource.getFile();
         if (!file.exists()) {
-            throw new Exception("logo file not found.");
+            throw new Exception("not found logo.jpg int classPath(/logo/logo.jpg).");
         }
 
         // 读 logo图片
-        Image logoImage = ImageIO.read(new File(logoPath));
+        Image logoImage = ImageIO.read(file);
         int width = logoImage.getWidth(null);
         int height = logoImage.getHeight(null);
 

@@ -54,4 +54,10 @@ public class ShorturlApplicationTests {
 		System.out.println(res);
 	}
 
+	@Test
+	public void getSysInfo(){
+		System.out.println(System.getProperty("os.name"));
+		System.out.println(System.getProperty("file.separator"));
+	}
+
 }

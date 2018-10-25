@@ -3,6 +3,9 @@ api_url: https://api.weibo.com/2/short_url/shorten.json
 # 新浪应用Token
 acess_token: 2.00FMIcADLQuzWB8dcef1c8f7HxYv2E
 
+# 生成二维码保存路径（注意操作系统）
+DEST_PATH: D://qrCode/picture
+
 spring:
   redis:
     database: 0

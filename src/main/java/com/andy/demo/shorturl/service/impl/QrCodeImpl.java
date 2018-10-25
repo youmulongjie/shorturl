@@ -5,6 +5,7 @@ import com.andy.demo.shorturl.service.IQrCode;
 import com.andy.demo.shorturl.util.QrCodeUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,6 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class QrCodeImpl implements IQrCode {
+    @Value("${DEST_PATH}")
+    private String destPath;
     @Autowired
     private RedisStringUtil redisStringUtil;
 
@@ -25,7 +28,7 @@ public class QrCodeImpl implements IQrCode {
         // redis 不存在key，则先生成二维码，再将路径保存在 redis中
         if(!redisStringUtil.hasKey(key)){
             try {
-                String path = QrCodeUtils.qrCode(longUrl, LOGO_PATH, DEST_PATH);
+                String path = QrCodeUtils.qrCode(longUrl, LOGO_PATH, destPath);
                 log.info("放redis-二维码：key={}，value={}", key, path);
                 redisStringUtil.set(key, path, 60*60*24*30);
             } catch (Exception e) {

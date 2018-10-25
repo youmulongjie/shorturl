@@ -8,13 +8,9 @@ import com.andy.demo.shorturl.constant.IConstant;
  */
 public interface IQrCode {
     /**
-     * 二维码在服务器上生成的根目录
+     * logo文件路径（classPath logo文件夹下 logo.jpg）
      */
-    String DEST_PATH = "D://qrCode/picture";
-    /**
-     * logo文件路径
-     */
-    String LOGO_PATH = "D://qrCode/logo.jpg";
+    String LOGO_PATH = "/logo/logo.jpg";
 
     /**
      * 根据长地址 生成二维码，返回生成文件地址
