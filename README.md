@@ -1,7 +1,7 @@
 shorturl
 ================================
 1) 根据长链接 转化短链接（依赖 新浪API）；
-2) 根据长连接 生成二维码（依赖 谷歌com.google.zxing）
+2) 根据长连接 生成二维码、条形码（依赖 谷歌com.google.zxing）
 
 ## 长链接 转化短链接
 
@@ -25,7 +25,7 @@ shorturl
        <version>${com.google.zxing.version}</version>
    </dependency>
    ```
-- 实现类 QrCodeImpl
+- 实现类 CreateCodeImpl.java
 
 ## Andy.wang
 
