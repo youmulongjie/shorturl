@@ -27,8 +27,8 @@ public class ShorturlApplicationTests {
     @Autowired
     private IShortUrl iShortUrl;
 
-    // 测试短地址
-    @Test
+    // 测试短地址（官方功能已下线）
+    /*@Test
     public void testShortUrl() {
         String longUrl = "https://www.cnblogs.com/shaohsiung/p/9649845.html";
         String res = iShortUrl.shortUrl(longUrl);
@@ -36,7 +36,7 @@ public class ShorturlApplicationTests {
 
         res = iShortUrl.shortUrl("https://my.oschina.net/andy1989/blog/3120943");
         System.out.println(res);
-    }
+    }*/
 
     @Autowired
     private ICreateCode iCreateCode;
