@@ -1,22 +1,28 @@
-# 新浪应用 转化短接口API
-api_url: https://api.weibo.com/2/short_url/shorten.json
-# 新浪应用Token
-acess_token: 2.00FMIcADLQuzWB8dcef1c8f7HxYv2E
+# 新浪开放平台账号信息
+sinaopen:
+  api_url: https://api.weibo.com/2/short_url/shorten.json
+  access_token: 2.00FMIcADLQuzWB8dcef1c8f7HxYv2E
 
-# 生成二维码保存路径（注意操作系统）
-DEST_PATH: D://qrCode/picture
 
-spring:
-  redis:
-    database: 0
-    host: 127.0.0.1
-    pool: 6379
-    password: Andy
-    jedis:
-      pool:
-        min-idle: 0
-        max-idle: 8
-        max-active: 8
-        max-wait: -1
-    timeout: 3000
+# 二维码参数信息
+qrcodeinfo:
+  logo_path: /logo/logo.jpg
+  logo_width: 90
+  logo_height: 90
+  qr_code_size: 300
+  charset: utf-8
+  picture_format: png
+  create_path: D://picture/qrCode
+
+
+# 条形码参数信息
+barcodeinfo:
+  width: 300
+  height: 50
+  word_height: 75
+  charset: utf-8
+  picture_format: png
+  create_path: D://picture/barCode
+
+
 
